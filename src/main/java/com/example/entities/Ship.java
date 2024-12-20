@@ -14,9 +14,5 @@ public class Ship extends Entity{
         this.shipIsShooting = false;
     }
 
-    public double shipMoving(int shipDeltaX){
-        if (shipDeltaX < 0){
-
-        }
-    }
+    
 }
