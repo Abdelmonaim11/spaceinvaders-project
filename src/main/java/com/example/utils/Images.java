@@ -15,6 +15,11 @@ public interface Images {
     Image ALIEN_BOTTOM_1 = new Image(PATH + "alienBottom1.png");
     Image ALIEN_BOTTOM_2 = new Image(PATH + "alienBottom2.png");
 
+    /******************************** SHIP   *********************************/
+
+    Image SHIP = new Image(PATH + "vaisseau.png");
+    Image SHIP_SHOOT = new Image(PATH + "ship1Shoot.png");
+
 
 
 }

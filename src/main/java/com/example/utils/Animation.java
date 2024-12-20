@@ -19,4 +19,6 @@ public class Animation {
         fade.setToValue(toValue);
         fade.play();
     }
+
+
 }

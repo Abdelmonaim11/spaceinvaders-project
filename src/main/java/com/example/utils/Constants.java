@@ -23,4 +23,8 @@ public interface Constants {
     int ALIEN_SPEED = 1;  // Vitesse des aliens
     int ALIEN_POINT = 10; // Points attribués par alien
 
+    /******************************** SHIP   *********************************/
+
+
+
 }
