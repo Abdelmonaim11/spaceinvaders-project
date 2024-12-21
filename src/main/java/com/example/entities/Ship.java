@@ -14,5 +14,5 @@ public class Ship extends Entity{
         this.shipIsShooting = false;
     }
 
-    
+
 }
