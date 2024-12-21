@@ -1,5 +1,8 @@
 package fr.damien.spaceinvaders;
 
+import com.example.entities.Alien;
+import com.example.entities.Ship;
+import com.example.utils.FixedFrameRateTimer;
 import fr.damien.spaceinvaders.entities.*;
 import fr.damien.spaceinvaders.utils.*;
 import javafx.application.Platform;
