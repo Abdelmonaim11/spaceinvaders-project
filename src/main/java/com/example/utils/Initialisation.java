@@ -1,6 +1,7 @@
 package com.example.utils;
 
 import com.example.entities.Alien;
+import com.example.entities.Brick;
 import com.example.entities.Ship;
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
