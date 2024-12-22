@@ -3,6 +3,7 @@ package com.example.utils;
 import com.example.entities.Alien;
 import com.example.entities.Brick;
 import com.example.entities.Ship;
+import com.example.entities.ShipShoot;
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
