@@ -67,7 +67,7 @@
                                 <Font name="Agency FB Bold" size="18.0" />
                             </font>
                         </Label>
-                        <ImageView fx:id="heart1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="heart1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
                             <HBox.margin>
                                 <Insets top="23.0" />
                             </HBox.margin>
@@ -93,17 +93,17 @@
                         </Label>
                     </children>
                 </HBox>
-                <ImageView fx:id="heart2" fitHeight="30.0" fitWidth="30.0" layoutX="330.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="heart2" fitHeight="30.0" fitWidth="30.0" layoutX="330.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" visible="false">
                     <image>
                         <Image url="@images/Heart.png" />
                     </image>
                 </ImageView>
-                <ImageView fx:id="heart4" fitHeight="30.0" fitWidth="30.0" layoutX="396.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="heart4" fitHeight="30.0" fitWidth="30.0" layoutX="396.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" visible="false">
                     <image>
                         <Image url="@images/Heart.png" />
                     </image>
                 </ImageView>
-                <ImageView fx:id="heart5" fitHeight="30.0" fitWidth="30.0" layoutX="428.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="heart5" fitHeight="30.0" fitWidth="30.0" layoutX="428.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" visible="false">
                     <image>
                         <Image url="@images/Heart.png" />
                     </image>
@@ -115,7 +115,7 @@
                 <Image url="@images/logoSpaceInvaders.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="heart3" fitHeight="30.0" fitWidth="30.0" layoutX="363.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="heart3" fitHeight="30.0" fitWidth="30.0" layoutX="363.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true" visible="false">
             <image>
                 <Image url="@images/Heart.png" />
             </image>
