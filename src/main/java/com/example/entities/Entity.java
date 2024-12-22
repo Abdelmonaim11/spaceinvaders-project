@@ -12,13 +12,15 @@ public abstract class Entity extends Rectangle {
     protected Image img;
 
     // Motif d'image qui permet de remplir la forme (ici un Rectangle) avec une image.
-    protected ImagePattern imagePattern;
+    protected ImagePattern imgPattern;
 
     // Constructeur qui initialise la position (x, y) et la taille (width, height) de l'entité.
     // Il appelle le constructeur de la classe Rectangle pour définir les propriétés géométriques.
     public Entity(double x, double y, double width, double height) {
-        super(x, y, width, height); // Initialise la position et les dimensions de l'entité.
+        super(x, y, width, height);
     }
+        // Initialise la position et les dimensions de l'entité.
+
 
     // Méthode pour récupérer l'image de l'entité.
     public Image getImg() {
@@ -26,17 +28,18 @@ public abstract class Entity extends Rectangle {
     }
 
     // Méthode pour définir l'image de l'entité.
-    public void setImg(Image image) {
-        this.img = image; // Affecte une nouvelle image à l'entité.
-    }
+    public void setImg(Image img) {
+        this.img = img;
+    } // Affecte une nouvelle image à l'entité.
+
 
     // Méthode pour récupérer le motif d'image utilisé pour le rendu visuel.
-    public ImagePattern getImagePattern() {
-        return imagePattern;
+    public ImagePattern getImgPattern() {
+        return imgPattern;
     }
 
     // Méthode pour définir un motif d'image pour l'entité, ce qui change son apparence.
-    public void setImagePattern(ImagePattern imageP) {
-        this.imagePattern = imageP; // Affecte un nouveau motif d'image à l'entité.
+    public void setImgPattern(ImagePattern imgPattern) {
+        this.imgPattern = imgPattern;
     }
 }
