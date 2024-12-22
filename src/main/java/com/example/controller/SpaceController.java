@@ -1,7 +1,6 @@
 package fr.damien.spaceinvaders;
 
-import com.example.entities.Alien;
-import com.example.entities.Ship;
+import com.example.entities.*;
 import com.example.utils.FixedFrameRateTimer;
 import fr.damien.spaceinvaders.entities.*;
 import fr.damien.spaceinvaders.utils.*;
@@ -31,7 +30,7 @@ public class SpaceController implements Sounds, Constants, Images {
     private final FixedFrameRateTimer timer;
     private static int shipDeltaX;
     private List<Brick> walls;
-    private List<Heart> hearts;
+
     private Alien[][] aliens;
     private static long movingAliensCount = 0;
     private Group groupExplosion;
