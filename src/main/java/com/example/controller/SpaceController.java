@@ -1,10 +1,10 @@
-package fr.damien.spaceinvaders;
+package com.example.controller;
 
 import com.example.entities.*;
+import com.example.utils.Constants;
 import com.example.utils.FixedFrameRateTimer;
-import fr.damien.spaceinvaders.entities.*;
-import fr.damien.spaceinvaders.utils.*;
-import javafx.application.Platform;
+import com.example.utils.Images;
+import com.example.utils.Sounds;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -13,7 +13,6 @@ import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Rectangle;
@@ -86,7 +85,7 @@ public class SpaceController implements Sounds, Constants, Images {
                 }
                 //Lag effect
                 if (movingAliensCount % (100 - (10L * Alien.getSpeed())) == 0) {
-                    Alien.aliensMoving(aliens);
+                    Alien.alienMoving(aliens);
                 }
 
                 if (saucerTime % 1000 == 0) {

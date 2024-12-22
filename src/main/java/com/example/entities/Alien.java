@@ -29,8 +29,8 @@ public class Alien extends Entity {
     public Alien(double x, double y, double width, double height, Image image, int type) {
         super(x, y, width, height); // Appel au constructeur de la classe Entity
         super.setImg(image); // Définir l'image de l'alien
-        super.setImagePattern(new ImagePattern(super.getImg())); // Définir le motif de l'image
-        super.setFill(super.getImagePattern()); // Appliquer le motif à l'alien
+        super.setImgPattern(new ImagePattern(super.getImg())); // Définir le motif de l'image
+        super.setFill(super.getImgPattern()); // Appliquer le motif à l'alien
         this.type = type; // Définir le type de l'alien
     }
 
