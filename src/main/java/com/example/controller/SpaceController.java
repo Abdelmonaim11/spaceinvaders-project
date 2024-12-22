@@ -1,10 +1,7 @@
 package com.example.controller;
 
 import com.example.entities.*;
-import com.example.utils.Constants;
-import com.example.utils.FixedFrameRateTimer;
-import com.example.utils.Images;
-import com.example.utils.Sounds;
+import com.example.utils.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -119,7 +116,7 @@ public class SpaceController implements Sounds, Constants, Images {
         ship = new Ship(X_POS_INIT_SHIP, Y_POS_INIT_ShIP, SHIP_WIDTH, SHIP_HEIGHT);
         shipShoot = new ShipShoot(-SHIP_SHOOT_WIDTH, -SHIP_SHOOT_HEIGHT, SHIP_SHOOT_WIDTH, SHIP_SHOOT_HEIGHT);
         walls = new LinkedList<>();
-        hearts = new LinkedList<>();
+//        hearts = new LinkedList<>();
         aliens = new Alien[5][10];
         movingAliensCount = 0;
 

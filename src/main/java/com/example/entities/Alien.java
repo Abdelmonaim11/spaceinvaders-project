@@ -21,6 +21,14 @@ public class Alien extends Entity {
     // Type de l'alien (par exemple, un alien avec une forme ou une taille différente).
     private static int type;
 
+    public static int getType() {
+        return type;
+    }
+
+    public static void setType(int type) {
+        Alien.type = type;
+    }
+
     // Indique si l'alien est mort ou non.
     private boolean isDead;
 
