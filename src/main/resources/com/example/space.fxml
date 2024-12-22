@@ -128,12 +128,12 @@
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="274.0" layoutY="109.0" mnemonicParsing="false" onAction="#showShip" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 15;" text="Show">
+            <Button layoutX="274.0" layoutY="109.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 15;" text="Show">
                <font>
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="21.0" layoutY="109.0" mnemonicParsing="false" onAction="#addShip" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 15;" text="Add">
+            <Button layoutX="21.0" layoutY="109.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 15;" text="Add">
                <font>
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>
