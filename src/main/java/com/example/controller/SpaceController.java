@@ -40,6 +40,8 @@ public class SpaceController implements Sounds, Constants, Images {
 
 
     @FXML
+    private Pane paneInfo;
+    @FXML
     private ImageView imgLogo;
 
     @FXML
@@ -110,19 +112,14 @@ public class SpaceController implements Sounds, Constants, Images {
 
 
     public void initGame() {
-//        lives = 5;
-//        updateHearts();
-//        isHit = false; // Initialize the flag
+
         ship = new Ship(X_POS_INIT_SHIP, Y_POS_INIT_ShIP, SHIP_WIDTH, SHIP_HEIGHT);
         shipShoot = new ShipShoot(-SHIP_SHOOT_WIDTH, -SHIP_SHOOT_HEIGHT, SHIP_SHOOT_WIDTH, SHIP_SHOOT_HEIGHT);
         walls = new LinkedList<>();
-//        hearts = new LinkedList<>();
         aliens = new Alien[5][10];
         movingAliensCount = 0;
 
         score.set(0);
-
-//        groupExplosion = new Group(Explosion.explode());
 
         alienShootList = new LinkedList<>();
 
@@ -142,9 +139,7 @@ public class SpaceController implements Sounds, Constants, Images {
             Initialisation.initShip(ship, board);
             Initialisation.initShipShoot(shipShoot, board);
             Initialisation.initWalls(80, 400, 80, walls, board);
-            ////
-            // Initialisation.initHearts(hearts, board);
-            ////
+
             Initialisation.initAliens(aliens, board);
 
 
@@ -159,6 +154,8 @@ public class SpaceController implements Sounds, Constants, Images {
             heart3.setVisible(true);
             heart4.setVisible(true);
             heart5.setVisible(true);
+            paneInfo.setVisible(false);
+
             score.setValue(0);
             initStartButton = true;
         }
@@ -430,80 +427,8 @@ public class SpaceController implements Sounds, Constants, Images {
         heart3.setVisible(false);
         heart4.setVisible(false);
         heart5.setVisible(false);
+        paneInfo.setVisible(true);
     }
-
-
-//private int lives = 5;
-//    private boolean isHit = false; // Flag to prevent multiple hits in one frame
-//
-//    private void endGame() {
-//        // Check if all aliens are dead (win condition)
-//        boolean allAliensDead = Arrays.stream(aliens).allMatch(a -> Arrays.stream(a).allMatch(Alien::isDead));
-//        if (allAliensDead) {
-//            timer.stop();
-//            lblEndGame.setText(END_GAME_WIN);
-//            board.getChildren().remove(ship);
-//            if (saucer != null) {
-//                board.getChildren().remove(saucer);
-//            }
-//            return;
-//        }
-//
-//        // Check for ship collision with alien or alien shoot (lose condition)
-//        boolean shipCollision = alienShootList.stream().anyMatch(shootAlien -> shootAlien.getBoundsInParent().intersects(ship.getBoundsInParent()))
-//                || Arrays.stream(aliens).anyMatch(a -> Arrays.stream(a).anyMatch(alien -> alien.getBoundsInParent().intersects(ship.getBoundsInParent())));
-//
-//        // Check if any alien reaches the bottom (lose condition)
-//        boolean alienReachedBottom = Arrays.stream(aliens).anyMatch(a -> Arrays.stream(a).anyMatch(alien -> alien.getY() > WINDOW_HEIGHT - WINDOW_MARGIN));
-//
-//        if ((shipCollision || alienReachedBottom) && !isHit) { // Check the flag here
-//            isHit = true; // Set the flag to true to prevent further hits this frame
-//            lives--;
-//
-//            if (lives > 0) {
-//                ship.setX(X_POS_INIT_SHIP);
-//                ship.setY(Y_POS_INIT_ShIP);
-//                updateHearts();
-//                // Optional invulnerability period (using a Timer):
-//                Timer invulnerabilityTimer = new Timer();
-//                invulnerabilityTimer.schedule(new TimerTask() {
-//                    @Override
-//                    public void run() {
-//                        isHit = false; // Reset the flag after a short delay
-//                    }
-//                }, 500); // 500 milliseconds (adjust as needed)
-//
-//                return;
-//            } else {
-//                // Game Over
-//                Group groupExplosionShip = new Group(Explosion.explodeShip());
-//                groupExplosionShip.setLayoutX(ship.getX() - (SHIP_WIDTH / 2));
-//                groupExplosionShip.setLayoutY(ship.getY() - SHIP_HEIGHT);
-//                board.getChildren().addAll(groupExplosionShip);
-//                Audio.playSound(SHIP_DESTRUCTION_SOUND);
-//
-//                timer.stop();
-//                lblEndGame.setText(END_GAME_LOOSE);
-//                board.getChildren().remove(ship);
-//                if (saucer != null) {
-//                    saucer.getSaucerPassingSound().stop();
-//                    board.getChildren().remove(saucer);
-//                }
-//            }
-//        } else if (!shipCollision && !alienReachedBottom){
-//            isHit = false;
-//        }
-//    }
-//    private void updateHearts() {
-//        // This method updates the heart images based on the remaining lives.
-//        // Assuming you have ImageView objects for hearts (heart1, heart2, etc.)
-//
-//        heart1.setVisible(lives >= 1);
-//        heart2.setVisible(lives >= 2);
-//        heart3.setVisible(lives >= 3);
-//        heart4.setVisible(lives >= 4);
-//        heart5.setVisible(lives == 5);
-//    }
 
     private int playerHitCount = 0; // Initialisé à 0
     private static final int MAX_HITS = 5; // Nombre maximum de hits avant de mourir

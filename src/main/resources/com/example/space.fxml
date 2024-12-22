@@ -120,7 +120,7 @@
                 <Image url="@images/Heart.png" />
             </image>
         </ImageView>
-      <Pane layoutX="120.0" layoutY="340.0" prefHeight="160.0" prefWidth="380.0" style="-fx-background-color: rgba(255, 255, 255, 0.3); -fx-border-color: #F0F8FF; -fx-background-radius: 20; -fx-border-width: 2.5; -fx-border-radius: 20;">
+      <Pane fx:id="paneInfo" layoutX="120.0" layoutY="340.0" prefHeight="160.0" prefWidth="380.0" style="-fx-background-color: rgba(255, 255, 255, 0.3); -fx-border-color: #F0F8FF; -fx-background-radius: 20; -fx-border-width: 2.5; -fx-border-radius: 20;">
          <children>
             <TextField fx:id="nameShip" layoutX="89.0" layoutY="34.0" prefHeight="25.0" prefWidth="203.0" promptText="Name" style="-fx-background-radius: 10; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 10;" />
             <Label layoutX="38.0" layoutY="39.0" text="Name :">
