@@ -8,6 +8,7 @@ module com.example {
     requires java.sql;
 
     opens com.example.controller to javafx.fxml;
+    opens com.example.entities to javafx.base;
 
     exports com.example;
 }

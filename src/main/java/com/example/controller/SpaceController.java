@@ -1,20 +1,29 @@
 package com.example.controller;
 
+import com.example.SpaceApplication;
+import com.example.dao.PlayerImpl;
 import com.example.entities.*;
 import com.example.utils.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.util.*;
 
 public class SpaceController implements Sounds, Constants, Images {
@@ -39,7 +48,8 @@ public class SpaceController implements Sounds, Constants, Images {
     private Saucer saucer;
     private long saucerTime = 0;
     private static final Rectangle saucer100Rect = new Rectangle();
-
+private Player currentPlayer=null;
+private PlayerImpl playerImp = new PlayerImpl();
 
     @FXML
     private Pane paneInfo;
@@ -132,6 +142,15 @@ public class SpaceController implements Sounds, Constants, Images {
 
     @FXML
     void onStartAction() {
+        if (namePlayer == null || namePlayer.getText().trim().isEmpty()) {
+            // Show an alert or message to the user
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a name before starting the game!");
+            alert.showAndWait();
+            return; // Stop execution of the method
+        }
         if (!initStartButton) {
 
             Animation.animateLogoSpaceInvaders(imgLogo, 0, -500, 500, 1, 0, 300);
@@ -430,6 +449,7 @@ public class SpaceController implements Sounds, Constants, Images {
         heart4.setVisible(false);
         heart5.setVisible(false);
         paneInfo.setVisible(true);
+        playerImp.updateScore(score.get(), namePlayer.getText());
     }
 
     private int playerHitCount = 0; // Initialisé à 0
@@ -474,6 +494,7 @@ public class SpaceController implements Sounds, Constants, Images {
             if (playerHitCount >= MAX_HITS) {
                 timer.stop();
                 lblEndGame.setText(END_GAME_LOOSE);
+                playerImp.updateScore(score.get(), namePlayer.getText());
                 board.getChildren().remove(ship);
                 board.getChildren().remove(saucer);
                 if (saucer != null) {
@@ -486,6 +507,51 @@ public class SpaceController implements Sounds, Constants, Images {
         // Réinitialiser le flag hasBeenHit après un certain temps (par exemple, 1 seconde)
         if (hasBeenHit && System.currentTimeMillis() - lastHitTime > 1000) {
             hasBeenHit = false; // Réinitialiser le flag après 1 seconde
+        }
+    }
+
+    @FXML
+    private TextField namePlayer;
+    @FXML
+    void showStatistics(ActionEvent event) {
+        try{
+
+            FXMLLoader fxmlLoader = new FXMLLoader(SpaceApplication.class.getResource("statistics.fxml"));
+
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Statistics!");
+            stage.setScene(scene);
+            stage.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void addPlayer(ActionEvent event) {
+        if (namePlayer == null || namePlayer.getText().trim().isEmpty()) {
+            // Show an alert or message to the user
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a name before starting the game!");
+            alert.showAndWait();
+            return; // Stop execution of the method
+        }
+        if (namePlayer!=null){
+            currentPlayer = playerImp.findByName(namePlayer.getText());
+            if (currentPlayer!=null){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Player already exist");
+                alert.setHeaderText(null);
+                alert.setContentText("You have registered before, you can play now!");
+                alert.showAndWait();
+                return; // Stop execution of the method
+            }else {
+                playerImp.add(namePlayer.getText());
+            }
         }
     }
 
