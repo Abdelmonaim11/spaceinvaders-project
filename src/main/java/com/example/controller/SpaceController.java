@@ -31,6 +31,8 @@ public class SpaceController implements Sounds, Constants, Images {
     private static long movingAliensCount = 0;
     private Group groupExplosion;
     private final IntegerProperty score = new SimpleIntegerProperty(0);
+
+    private int scoreFinal;
     private static boolean initStartButton = false;
     private static Random random = new Random();
     private static LinkedList<AlienShoot> alienShootList;
@@ -477,6 +479,7 @@ public class SpaceController implements Sounds, Constants, Images {
                 if (saucer != null) {
                     saucer.getSaucerPassingSound().stop();
                 }
+                int scoreFinal = score.get();
             }
         }
 
