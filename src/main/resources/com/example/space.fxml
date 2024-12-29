@@ -122,18 +122,18 @@
         </ImageView>
       <Pane fx:id="paneInfo" layoutX="120.0" layoutY="340.0" prefHeight="160.0" prefWidth="380.0" style="-fx-background-color: rgba(255, 255, 255, 0.3); -fx-border-color: #F0F8FF; -fx-background-radius: 20; -fx-border-width: 2.5; -fx-border-radius: 20;">
          <children>
-            <TextField fx:id="nameShip" layoutX="89.0" layoutY="34.0" prefHeight="25.0" prefWidth="203.0" promptText="Name" style="-fx-background-radius: 10; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 10;" />
+            <TextField fx:id="namePlayer" layoutX="89.0" layoutY="34.0" prefHeight="25.0" prefWidth="203.0" promptText="Name" style="-fx-background-radius: 10; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 10;" />
             <Label layoutX="38.0" layoutY="39.0" text="Name :">
                <font>
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="274.0" layoutY="109.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 15;" text="Show">
+            <Button layoutX="274.0" layoutY="109.0" mnemonicParsing="false" onAction="#showStatistics" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 15;" text="Show">
                <font>
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="21.0" layoutY="109.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 15;" text="Add">
+            <Button layoutX="21.0" layoutY="109.0" mnemonicParsing="false" onAction="#addPlayer" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-color: #DEB887; -fx-border-width: 2; -fx-border-radius: 15;" text="Add">
                <font>
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>

@@ -48,8 +48,8 @@ public class SpaceController implements Sounds, Constants, Images {
     private Saucer saucer;
     private long saucerTime = 0;
     private static final Rectangle saucer100Rect = new Rectangle();
-private Player currentPlayer=null;
-private PlayerImpl playerImp = new PlayerImpl();
+    private Player currentPlayer=null;
+    private PlayerImpl playerImp = new PlayerImpl();
 
     @FXML
     private Pane paneInfo;
@@ -74,10 +74,6 @@ private PlayerImpl playerImp = new PlayerImpl();
 
     @FXML
     private Label lblEndGame, lblRightScore, lblLeftScore, lblFPS;
-
-
-
-
 
 
     public SpaceController() {
@@ -142,14 +138,24 @@ private PlayerImpl playerImp = new PlayerImpl();
 
     @FXML
     void onStartAction() {
+        //(playerImp.findByName(namePlayer.getText()).getScore() < score.get())
         if (namePlayer == null || namePlayer.getText().trim().isEmpty()) {
             // Show an alert or message to the user
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Input Error");
             alert.setHeaderText(null);
-            alert.setContentText("Please enter a name before starting the game!");
+            alert.setContentText("Veuillez entrer un nom avant de commencer le jeu !");
             alert.showAndWait();
             return; // Stop execution of the method
+        }
+        if (playerImp.findByName(namePlayer.getText()) == null) {
+            // Afficher une alerte à l'utilisateur
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Nom introuvable");
+            alert.setHeaderText(null);
+            alert.setContentText("Ce nom n'existe pas dans la base de données. Veuillez vérifier votre saisie ou ajouter le nom.");
+            alert.showAndWait();
+            return; // Arrêter l'exécution de la méthode
         }
         if (!initStartButton) {
 
@@ -449,7 +455,9 @@ private PlayerImpl playerImp = new PlayerImpl();
         heart4.setVisible(false);
         heart5.setVisible(false);
         paneInfo.setVisible(true);
-        playerImp.updateScore(score.get(), namePlayer.getText());
+        if (playerImp.findByName(namePlayer.getText()).getScore() < score.get()){
+            playerImp.updateScore(score.get(), namePlayer.getText());
+        }
     }
 
     private int playerHitCount = 0; // Initialisé à 0
@@ -494,7 +502,9 @@ private PlayerImpl playerImp = new PlayerImpl();
             if (playerHitCount >= MAX_HITS) {
                 timer.stop();
                 lblEndGame.setText(END_GAME_LOOSE);
-                playerImp.updateScore(score.get(), namePlayer.getText());
+                if (playerImp.findByName(namePlayer.getText()).getScore() < score.get()){
+                    playerImp.updateScore(score.get(), namePlayer.getText());
+                }
                 board.getChildren().remove(ship);
                 board.getChildren().remove(saucer);
                 if (saucer != null) {
@@ -536,7 +546,7 @@ private PlayerImpl playerImp = new PlayerImpl();
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Input Error");
             alert.setHeaderText(null);
-            alert.setContentText("Please enter a name before starting the game!");
+            alert.setContentText("Veuillez saisir un nom avant de commencer le jeu !");
             alert.showAndWait();
             return; // Stop execution of the method
         }
@@ -546,7 +556,7 @@ private PlayerImpl playerImp = new PlayerImpl();
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Player already exist");
                 alert.setHeaderText(null);
-                alert.setContentText("You have registered before, you can play now!");
+                alert.setContentText("Vous êtes déjà inscrit, vous pouvez jouer maintenant !");
                 alert.showAndWait();
                 return; // Stop execution of the method
             }else {
